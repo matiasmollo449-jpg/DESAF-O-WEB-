@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>✨ Fibonacci & Primos | Desafío Web 2005</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div class="animated-bg"></div>
+
+    <div class="container">
+        <!-- PORTADA / ENCABEZADO -->
+        <header class="header glass-card">
+            <div class="header-badge">
+                <i class="fas fa-chart-line"></i> Desafío Web 2005
+            </div>
+            <h1>
+                <span class="fibonacci-icon">🌀</span> 
+                Fibonacci + Números Primos
+                <span class="primes-icon">🔐</span>
+            </h1>
+            <p class="subtitle">Estudiante: <strong>Equipo Fibonacci+</strong> | Matemática aplicada al mundo real</p>
+            <div class="header-stats">
+                <span><i class="fas fa-calculator"></i> Serie Fibonacci</span>
+                <span><i class="fas fa-shield-alt"></i> Números Primos</span>
+                <span><i class="fas fa-chart-simple"></i> Crecimiento natural</span>
+            </div>
+        </header>
+
+        <!-- CONTEXTO DEL PROBLEMA -->
+        <section class="card context-card">
+            <div class="card-icon">
+                <i class="fas fa-globe-americas"></i>
+            </div>
+            <h2>📌 Contexto del problema real</h2>
+            <p>
+                <strong>Dos grandes herramientas matemáticas:</strong> La <strong class="highlight">serie de Fibonacci</strong> aparece en la naturaleza (crecimiento de poblaciones, plantas, finanzas) 
+                y los <strong class="highlight">números primos</strong> son esenciales en seguridad informática, generación de claves y códigos de acceso.
+            </p>
+            <div class="real-example">
+                <i class="fas fa-chart-line"></i>
+                <span><strong>Fibonacci → Ahorro:</strong> Ahorro progresivo sin presión inicial.</span>
+            </div>
+            <div class="real-example" style="margin-top: 8px;">
+                <i class="fas fa-lock"></i>
+                <span><strong>Primos → Seguridad:</strong> Verificar si un código es primo para usarlo como clave segura.</span>
+            </div>
+        </section>
+
+        <!-- EXPLICACIÓN DEL ALGORITMO -->
+        <section class="card algorithm-card">
+            <div class="card-icon">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h2>🧠 ¿Cómo funcionan los algoritmos?</h2>
+            <div class="algorithm-visual">
+                <div class="fib-step">1</div>
+                <i class="fas fa-plus"></i>
+                <div class="fib-step">1</div>
+                <i class="fas fa-equals"></i>
+                <div class="fib-step">2</div>
+                <i class="fas fa-plus"></i>
+                <div class="fib-step">1</div>
+                <i class="fas fa-equals"></i>
+                <div class="fib-step">3</div>
+                <i class="fas fa-plus"></i>
+                <div class="fib-step">2</div>
+                <i class="fas fa-equals"></i>
+                <div class="fib-step prime-highlight">5</div>
+            </div>
+            <div class="two-columns">
+                <div class="algo-box">
+                    <i class="fas fa-chart-line"></i>
+                    <strong>Fibonacci</strong>
+                    <code>F(n) = F(n-1) + F(n-2)</code>
+                    <small>Cada término es suma de los dos anteriores</small>
+                </div>
+                <div class="algo-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <strong>Número Primo</strong>
+                    <code>Solo divisible entre 1 y sí mismo</code>
+                    <small>2, 3, 5, 7, 11, 13, 17...</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELECTOR DE MODO -->
+        <section class="card mode-card">
+            <div class="card-icon">
+                <i class="fas fa-sliders-h"></i>
+            </div>
+            <h2>🎛️ Elige el modo de cálculo</h2>
+            <div class="mode-selector">
+                <label class="mode-option">
+                    <input type="radio" name="modo" value="fibonacci" checked>
+                    <span class="mode-label"><i class="fas fa-chart-line"></i> Ahorro Fibonacci</span>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="modo" value="primos">
+                    <span class="mode-label"><i class="fas fa-shield-alt"></i> Verificar Número Primo</span>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="modo" value="combinado">
+                    <span class="mode-label"><i class="fas fa-star-of-life"></i> Fibonacci + Primos</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DINÁMICO -->
+        <section class="card form-card">
+            <div class="card-icon">
+                <i class="fas fa-coins"></i>
+            </div>
+            <h2 id="formTitle">💰 Simula tu ahorro Fibonacci</h2>
+            <form id="mainForm">
+                <div class="input-group">
+                    <label id="inputLabel" for="valorInput">
+                        <i class="fas fa-calendar-alt"></i> ¿Cuántos meses vas a ahorrar?
+                    </label>
+                    <input type="number" id="valorInput" name="valorInput" min="1" max="40" placeholder="Ej: 6, 12, 24..." required>
+                    <div id="inputHint" class="input-hint">🔹 Recomendado: 6 a 24 meses</div>
+                </div>
+                <button type="submit" id="calcularBtn">
+                    <i class="fas fa-rocket"></i> Calcular
+                </button>
+            </form>
+        </section>
+
+        <!-- RESULTADO -->
+        <section class="card result-card">
+            <div class="card-icon">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h2>📊 Resultado</h2>
+            <div id="resultado" class="resultado-area">
+                <div class="result-placeholder">
+                    <i class="fas fa-hand-peace"></i> Selecciona un modo y calcula...
+                </div>
+            </div>
+        </section>
+
+        <!-- CONCLUSIÓN -->
+        <section class="card conclusion-card">
+            <div class="card-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <h2>💡 Conclusión</h2>
+            <p>
+                <strong>Fibonacci</strong> enseña que el crecimiento progresivo genera grandes resultados (ahorro, poblaciones, diseño natural).<br>
+                <strong>Números primos</strong> son la base de la criptografía moderna y sistemas de seguridad.
+            </p>
+            <blockquote>
+                “La matemática está en todo: desde el crecimiento de una flor hasta la protección de tus datos.”
+            </blockquote>
+        </section>
+
+        <!-- ENLACES -->
+        <footer class="footer glass-card">
+            <div class="footer-links">
+                <a href="#" id="repoLink" target="_blank" class="footer-btn">
+                    <i class="fab fa-github"></i> Repositorio Git
+                </a>
+                <a href="#" id="liveLink" target="_blank" class="footer-btn">
+                    <i class="fas fa-globe"></i> Sitio web publicado
+                </a>
+            </div>
+            <p class="nota">
+                <i class="fas fa-info-circle"></i> Reemplaza los enlaces con los reales al subir a GitHub Pages
+            </p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
